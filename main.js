@@ -22,10 +22,12 @@ app.get('/', (req, res)=>{
 	res.render('index');
 });
 //35.229.112.63
-mongo.connect('mongodb://localhost/cool_db', function(err, db){
+mongo.connect('mongodb://35.229.112.63/cool_db', function(err, db){
 	if(err) return;
 	console.log('conecto');
-	console.log(tweet.find());
+	tweet.find(function(err,docs){
+		console.log(docs);
+	});
 	app.listen(8080, function(){
 		console.log('Servidor corriendo en http://localhost:8080');
 	});
