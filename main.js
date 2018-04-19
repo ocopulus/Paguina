@@ -21,17 +21,23 @@ app.use(express.static('public'));
 app.get('/', (req, res)=>{
 	res.render('index');
 });
+
+app.get('/tweets', (req, res)=>{
+	tweet.find(function(err, docs){
+		res.send(docs);
+	});
+});
 //35.229.112.63
 mongo.connect('mongodb://35.229.112.63/cool_db', function(err, db){
 	if(err) return;
 	console.log('conecto');
-	tweet.find(function(err,docs){
+	/*tweet.find(function(err,docs){
 		console.log(docs);
-	});
+	});*/
 	app.listen(8080, function(){
 		console.log('Servidor corriendo en http://localhost:8080');
 	});
-	
+
 });
 
 /*app.listen(8080, function(){
