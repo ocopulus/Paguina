@@ -15,7 +15,7 @@ function grafica(){
        google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        var tama = 50;
+        var tama = 15;
         if(items.length<tama){
 
           tama = items.length-1;
